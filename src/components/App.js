@@ -9,14 +9,14 @@ console.log({ CATEGORIES, TASKS });
 
 function App() {
   
-  const [selected, setSelected] = useState("All");
+  const [selected, setSelected] = useState("");
   const [tasks, setTasks] = useState(TASKS);
 
   const handleTaskFormSubmit = (newTask) => {
     setTasks([...tasks,newTask]);
   }
   
-  const filteredTasks = (selected === "All" ? tasks : tasks.filter((task) => task.category === selected));
+  const filteredTasks = ((selected === "" || selected === "All") ? tasks : tasks.filter((task) => task.category === selected));
   
   //console.log("Filtered Tasks: ", filteredTasks);
 

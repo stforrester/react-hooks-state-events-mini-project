@@ -14,11 +14,10 @@ function TaskList({ filteredTasks }) {
     setTasksState(newTasksArray);
   };
 
-  const tasksList = tasksState.map((task) => {
-    return (
+  const tasksList = tasksState.map((task) => (
       <Task key={task.text} text={task.text} category={task.category} handleDelete={handleDelete} />
-    );
-  })
+    )
+  )
 
   //console.log("Tasks in tasksState: ", tasksState);
 
