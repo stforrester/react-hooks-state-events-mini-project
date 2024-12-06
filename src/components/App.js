@@ -10,8 +10,13 @@ console.log({ CATEGORIES, TASKS });
 function App() {
   
   const [selected, setSelected] = useState("All");
+  const [tasks, setTasks] = useState(TASKS);
 
-  const filteredTasks = (selected === "All" ? TASKS : TASKS.filter((task) => task.category === selected));
+  const handleTaskFormSubmit = (newTask) => {
+    setTasks([...tasks,newTask]);
+  }
+  
+  const filteredTasks = (selected === "All" ? tasks : tasks.filter((task) => task.category === selected));
   
   //console.log("Filtered Tasks: ", filteredTasks);
 
@@ -19,7 +24,7 @@ function App() {
     <div className="App">
       <h2>My tasks</h2>
       <CategoryFilter categories={CATEGORIES} selected={selected} setSelected={setSelected} />
-      <NewTaskForm />
+      <NewTaskForm categories={CATEGORIES} onTaskFormSubmit={handleTaskFormSubmit} />
       <TaskList filteredTasks={filteredTasks} />
     </div>
   );

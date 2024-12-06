@@ -20,7 +20,7 @@ function TaskList({ filteredTasks }) {
     );
   })
 
-  console.log("Tasks in tasksState: ", tasksState);
+  //console.log("Tasks in tasksState: ", tasksState);
 
   return (
     <div className="tasks">
